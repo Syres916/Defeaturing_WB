@@ -2488,8 +2488,8 @@ def RH_centerOnScreen (widg):
     Centers the window on the screen.'''
     # sayw(widg.width());sayw(widg.height())
     # sayw(widg.pos().x());sayw(widg.pos().y())
-    if hasattr(QtGui, "QScreen"):
-        resolution = QtGui.QScreen().availableGeometry()
+    if hasattr(QtGui.QGuiApplication, "primaryScreen"):
+        resolution = QtGui.QGuiApplication.primaryScreen().availableGeometry()
     else:
         resolution = QtGui.QDesktopWidget().screenGeometry()
     xp=(resolution.width() / 2) - sizeX/2 # - (KSUWidget.frameSize().width() / 2)
